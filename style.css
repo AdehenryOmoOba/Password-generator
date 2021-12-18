@@ -207,6 +207,7 @@ body {
   border: none;
   background-color: var(--blue);
   color: var(--white-bg);
+  cursor: pointer;
 }
 .input-submit:hover {
   background-color: var(--hover);
@@ -236,21 +237,42 @@ body {
   background-color: var(--white-bg);
   transform: translateX(1.7rem);
 }
-@media only screen and (max-width: 55rem) {
-  .content {
-    width: 85%;
-    height: 60%;
-  }
-  .header {
-    justify-content: center;
-  }
-  .switch {
-    height: 1.8rem;
-  }
-  .password button {
-    width: 2.5rem;
-    height: 1.8rem;
-  }
+.contact-us {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.contact-us a {
+  text-decoration: none;
+}
+
+/*                           Contact form                 */
+
+.contact-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contact-form h2 {
+  text-align: center;
+}
+#name,
+#email,
+#phone,
+#message {
+  border: 0;
+  margin: 0;
+  padding: 0 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+.contact-form input {
+  height: 2.2rem;
+}
+.contact-form #message {
+  padding: 1rem;
 }
 @media only screen and (max-width: 55rem) {
   .content {

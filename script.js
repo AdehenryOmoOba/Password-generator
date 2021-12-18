@@ -7,6 +7,7 @@ const waves = document.querySelectorAll(".waves .shape-fill");
 const form = document.querySelector(".pass-form");
 const passwordField = document.getElementById("password-field");
 const passGenBtn = document.querySelector(".input-submit");
+const contactBtn = document.querySelector(".contact-us a");
 const xterRange = document.getElementById("xter-range");
 const xterNumber = document.getElementById("xter-number");
 const uppercaseInput = document.getElementById("uppercase");
@@ -19,12 +20,14 @@ switchInput.addEventListener("change", () => {
   if (lightTxt.textContent === "OFF") {
     lightTxt.textContent = "ON";
     body.style.background = "#ff4500";
+    contactBtn.style.color = "#fff";
     waves.forEach((wave) => {
       wave.style.fill = "#ff0000";
     });
   } else {
     lightTxt.textContent = "OFF";
     body.style.background = "var(--bg-linear-gradient)";
+    contactBtn.style.color = "#ff0000";
     waves.forEach((wave) => {
       wave.style.fill = "#c8c8f3";
     });

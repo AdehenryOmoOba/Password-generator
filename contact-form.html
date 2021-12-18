@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Adehenry: Contact Us</title>
+</head>
+<body>
+<div class="content">
+    <form  class="contact-form">
+        <h2>Contact Us</h2>
+        <input type="text" id="name" name="full name" placeholder="Full Name"  required>
+        <input type="email"  id="email" name="email"  placeholder="Email" required>
+        <input type="text" id="phone" name="phone"  placeholder="Phone" required>
+        <textarea id="message" name="message"   placeholder="Type Your Message Here..." rows="4" required></textarea>
+        <button type="submit" class="input-submit">Send Message</button>
+    </form>
+</div>
+
+<div class="contact-us">
+    <a href="./index.html" >Home</a>
+ </div>
+
+<!-- Sweet Alert CDN-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- ==== -->
+
+<!-- EmailJS CDN-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<!-- ==== -->
+
+<script type="text/javascript">
+    
+    (function() {
+     emailjs.init("user_3JS9ldVrWuYIvOtvBoBPZ");
+     })();
+
+const name = document.getElementById('name')
+const email = document.getElementById('email')
+const phone = document.getElementById('phone')
+const message = document.getElementById('message')
+const button = document.querySelector('.input-submit')
+const form = document.querySelector('.contact-form')
+
+    function successAlert(){
+    swal({
+        title: "Done!",
+        text: "Message Sent",
+        icon: "success",
+        button: "Ok",
+      });
+    }
+    function failAlert(){
+    swal({
+        title: "Oops!",
+        text: "Please Fill All Fields",
+        icon: "error",
+        button: "Ok",
+      });
+    }
+
+
+
+function sendEmail(name, email, message){
+    emailjs.send("service_cmvao5k","template_f2e6fay", {
+        from_name: name,
+        to_name: "adefemi",
+        message: message,
+        reply_to: email
+    });
+}
+
+button.addEventListener('click', (event) => {
+    event.preventDefault()
+    if(name.value === "" || email.value === "" || phone.value === "" || message.value === ""){
+        failAlert()  
+    } else {
+        sendEmail(name.value,email.value,message.value)
+        successAlert()
+        form.reset()
+    }
+        
+})
+
+</script>
+</body>
+</html>
